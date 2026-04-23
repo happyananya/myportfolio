@@ -7,19 +7,19 @@ function Contact() {
       <h1 className="title">Contact Me</h1>
       <div className="contact-info-upper-container">
         <div className="contact-info-container">
-          <img src="/assets/email.png" alt="Email icon" className="icon contact-icon email-icon" />
+          <img src={import.meta.env.BASE_URL + "assets/email.png"} alt="Email icon" className="icon contact-icon email-icon" />
           <p>
             <a href="mailto:aa13549@nyu.edu">aa13549@nyu.edu</a>
           </p>
         </div>
         <div className="contact-info-container">
-          <img src="/assets/linkedin.png" alt="LinkedIn icon" className="icon contact-icon" />
+          <img src={import.meta.env.BASE_URL + "assets/linkedin.png"} alt="LinkedIn icon" className="icon contact-icon" />
           <p>
             <a href="https://www.linkedin.com/in/ananya-agarwal03/">LinkedIn</a>
           </p>
         </div>
         <div className="contact-info-container">
-          <img src="/assets/github.png" alt="GitHub icon" className="icon contact-icon" />
+          <img src={import.meta.env.BASE_URL + "assets/github.png"} alt="GitHub icon" className="icon contact-icon" />
           <p>
             <a href="https://github.com/happyananya">GitHub</a>
           </p>

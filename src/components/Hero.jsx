@@ -5,7 +5,7 @@ import { RESUME_PDF_HREF } from "../constants";
 const bentoItems = [
   {
     area: "edu1",
-    icon: "/assets/education.png",
+    icon: import.meta.env.BASE_URL + "assets/education.png",
     title: "New York University",
     subtitle: "M.S. in Computer Science",
     detail: "CGPA: 3.78/4",
@@ -14,7 +14,7 @@ const bentoItems = [
   },
   {
     area: "edu2",
-    icon: "/assets/education.png",
+    icon: import.meta.env.BASE_URL + "assets/education.png",
     title: "VIT",
     subtitle: "B.Tech in Computer Science",
     detail: "CGPA: 3.7/4",
@@ -23,7 +23,7 @@ const bentoItems = [
   },
   {
     area: "exp",
-    icon: "/assets/experience.png",
+    icon: import.meta.env.BASE_URL + "assets/experience.png",
     title: "Experience",
     subtitle: "Software Engineer @ NYU VIDA Lab",
     detail: "+ 4 Prior Internships",
@@ -32,7 +32,7 @@ const bentoItems = [
   },
   {
     area: "cert",
-    icon: "/assets/checkmark.png",
+    icon: import.meta.env.BASE_URL + "assets/checkmark.png",
     title: "Certification",
     subtitle: "AWS Certified Solutions Architect",
     detail: "Associate \u2013 SAA-C03",
@@ -112,7 +112,7 @@ function Hero() {
           >
             <img
               className="section__pic-img"
-              src="/assets/profile-hero.png"
+              src={import.meta.env.BASE_URL + "assets/profile-hero.png"}
               alt="Portrait of Ananya Agarwal with the Golden Gate Bridge in the background"
             />
           </motion.div>
@@ -162,7 +162,7 @@ function Hero() {
                 className="social-link"
                 aria-label="Ananya Agarwal on LinkedIn"
               >
-                <img src="/assets/linkedin.png" alt="" className="icon" width={32} height={32} />
+                <img src={import.meta.env.BASE_URL + "assets/linkedin.png"} alt="" className="icon" width={32} height={32} />
               </a>
               <a
                 href="https://github.com/happyananya"
@@ -171,7 +171,7 @@ function Hero() {
                 className="social-link"
                 aria-label="Ananya Agarwal on GitHub"
               >
-                <img src="/assets/github.png" alt="" className="icon" width={32} height={32} />
+                <img src={import.meta.env.BASE_URL + "assets/github.png"} alt="" className="icon" width={32} height={32} />
               </a>
             </div>
           </motion.div>
