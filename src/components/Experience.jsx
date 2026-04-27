@@ -17,7 +17,7 @@ const experiences = [
   },
   {
     company: "Universiti Teknologi PETRONAS",
-    role: "Project Intern",
+    role: "Machine Learning Engineering Intern",
     location: "Seri Iskandar, Perak, Malaysia",
     period: "Jan. 2025 – May 2025",
     color: "#7c3aed",
@@ -29,7 +29,7 @@ const experiences = [
   },
   {
     company: "Samsung Research",
-    role: "PRISM Project Intern",
+    role: "Machine Learning Engineering Intern",
     location: "Remote",
     period: "June 2024 – Dec. 2024",
     color: "#2563eb",
@@ -52,7 +52,7 @@ const experiences = [
   },
   {
     company: "National Aerospace Laboratories",
-    role: "Research Intern",
+    role: "AI/ML Research Intern",
     location: "Remote",
     period: "Oct. 2023 – Dec. 2023",
     color: "#d97706",
