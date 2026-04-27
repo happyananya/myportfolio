@@ -11,16 +11,6 @@ A modern, responsive developer portfolio built with **React 18** and **Vite**, f
 
 ---
 
-<!-- Replace with an actual screenshot or GIF of your site -->
-<!-- To record a GIF: use a tool like LICEcap, Kap (macOS), or ScreenToGif (Windows) -->
-> **💡 Tip:** Add a screenshot or GIF here to make this README stand out even more.
->
-> ```md
-> ![Portfolio Preview](docs/preview.gif)
-> ```
-
----
-
 ## ✨ Features
 
 | Feature | Details |
@@ -68,8 +58,8 @@ src/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/happyananya/Web_Portfolio.git
-cd Web_Portfolio
+git clone https://github.com/happyananya/myportfolio.git
+cd myportfolio
 
 # 2. Install dependencies
 npm install
@@ -95,7 +85,7 @@ npm run preview  # preview the production build locally
 - **Bundler:** Vite 5
 - **Animations:** Framer Motion 12
 - **Styling:** Vanilla CSS with CSS custom properties for theming
-- **Deployment:** GitHub Pages / Vercel-ready
+- **Deployment:** GitHub Pages 
 
 ---
 
