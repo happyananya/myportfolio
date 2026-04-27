@@ -2,7 +2,7 @@
 
 A modern, responsive developer portfolio built with **React 18** and **Vite**, featuring smooth Framer Motion animations, a dark/light theme toggle, and a bento-grid layout.
 
-🔗 **Live:** [happyananya.github.io](https://happyananya.github.io/Web_Portfolio/)
+🔗 **Live:** [happyananya.github.io](https://happyananya.github.io/myportfolio/)
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
