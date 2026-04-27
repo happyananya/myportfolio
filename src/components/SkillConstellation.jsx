@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const categoryColors = {
   Languages: { light: "#2a8f6f", dark: "#58e6a6" },
@@ -11,12 +11,11 @@ const categoryColors = {
 const categoryIcons = {
   Languages: "\u{1F4BB}",
   "AI & Machine Learning": "\u{1F9E0}",
-  "ML & LLM Systems": "\u2699\uFE0F",
+  "ML & LLM Systems": "⚙️",
   "Full-Stack & Data": "\u{1F310}",
-  "Cloud & DevOps": "\u2601\uFE0F",
+  "Cloud & DevOps": "☁️",
 };
 
-/** Shown first: what recruiters should assume you ship with day-to-day. */
 const CORE_STACK = [
   "Python",
   "JavaScript/TypeScript",
@@ -26,7 +25,6 @@ const CORE_STACK = [
   "AWS",
 ];
 
-/** Exact matches to category `skills` strings get stronger pill styling. */
 const PRIMARY_SKILL_LABELS = new Set([
   "Python",
   "JavaScript/TypeScript",
@@ -59,6 +57,57 @@ const skillCategories = [
   },
 ];
 
+const SKILL_BARS = [
+  { label: "Python", pct: 92 },
+  { label: "PyTorch", pct: 78 },
+  { label: "React", pct: 75 },
+  { label: "AWS", pct: 60 },
+];
+
+function SkillBars() {
+  const [triggered, setTriggered] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setTriggered(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTriggered(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="skill-bars" ref={ref} aria-label="Core skill proficiency">
+      {SKILL_BARS.map(({ label, pct }) => (
+        <div className="skill-bar-row" key={label}>
+          <span className="skill-bar-label">{label}</span>
+          <div className="skill-bar-track" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100} aria-label={`${label} ${pct}%`}>
+            <div
+              className="skill-bar-fill"
+              style={{ width: triggered ? `${pct}%` : "0%" }}
+            />
+          </div>
+          <span className="skill-bar-pct" aria-hidden="true">{pct}%</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function SkillConstellation({ darkMode }) {
   return (
     <section id="skills">
@@ -70,6 +119,7 @@ function SkillConstellation({ darkMode }) {
       <div className="skills-core" aria-label="Core technical stack">
         <div className="skills-core-panel">
           <span className="skills-core-label">Core stack</span>
+          <SkillBars />
           <div className="skills-core-pills">
             {CORE_STACK.map((skill) => (
               <span className="skill-pill skill-pill--core" key={skill}>

@@ -866,9 +866,25 @@ a.btn{
 }
 
 .exp-row-header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
     margin-bottom: 0.85rem;
     padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--border-color);
+    transition: margin-bottom 0.35s ease, padding-bottom 0.35s ease, border-color 0.35s ease;
+}
+
+.exp-row-body[data-open="false"] .exp-row-header{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-color: transparent;
+}
+
+.exp-row-header-main{
+    flex: 1;
+    min-width: 0;
 }
 
 .exp-row-company{
@@ -1544,5 +1560,202 @@ footer p{
     .contact-info-upper-container:hover,
     .social-link:hover{
         transform: none;
+    }
+}
+
+/* ── 1. Scroll progress bar ── */
+
+.scroll-progress-bar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #1D9E75;
+    z-index: 9999;
+    pointer-events: none;
+    border-radius: 0 2px 2px 0;
+    transition: width 0.12s linear;
+}
+
+/* ── 1. Active nav link ── */
+
+#desktop-nav .nav-links a.nav-link--active{
+    color: var(--btn-bg);
+}
+
+#desktop-nav .nav-links a.nav-link--active::after{
+    width: 100%;
+}
+
+.menu-links a.nav-link--active{
+    color: var(--btn-bg);
+}
+
+/* ── 3. Project filter buttons ── */
+
+.project-filters{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0.65rem 0 0.85rem;
+    flex-wrap: wrap;
+}
+
+.project-filter-btn{
+    font-family: var(--font-display);
+    font-size: 0.83rem;
+    font-weight: 500;
+    padding: 0.35rem 1.05rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-filter-btn:hover{
+    border-color: #1D9E75;
+    color: #1D9E75;
+}
+
+.project-filter-btn.active{
+    background: #1D9E75;
+    color: #ffffff;
+    border-color: #1D9E75;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Filter wrapper — wraps each featured card so framer-motion opacity isn't overridden */
+
+.proj-filter-wrap{
+    transition: opacity 0.3s ease;
+}
+
+.proj-filter-wrap--dim{
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* More-projects rows */
+
+.projects-more-row{
+    transition: opacity 0.3s ease;
+}
+
+.projects-more-row--dim{
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* ── 4. Expandable experience entries ── */
+
+.exp-toggle-btn{
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 1.65rem;
+    height: 1.65rem;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.exp-toggle-btn:hover{
+    color: var(--btn-bg);
+    border-color: var(--btn-bg);
+    background: var(--bg-elevated);
+}
+
+.exp-toggle-btn:focus-visible{
+    outline: 2px solid var(--btn-bg);
+    outline-offset: 2px;
+}
+
+/* CSS Grid height animation for smooth expand/collapse */
+
+.exp-bullets-wrapper{
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.35s ease, opacity 0.35s ease;
+    opacity: 1;
+}
+
+.exp-row-body[data-open="false"] .exp-bullets-wrapper{
+    grid-template-rows: 0fr;
+    opacity: 0;
+}
+
+.exp-bullets-wrapper > .exp-row-bullets{
+    overflow: hidden;
+    min-height: 0;
+}
+
+/* ── 5. Skill bars ── */
+
+.skill-bars{
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.25rem;
+}
+
+.skill-bar-row{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.skill-bar-label{
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    width: 5rem;
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.skill-bar-track{
+    flex: 1;
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-bar-fill{
+    height: 100%;
+    background: #1D9E75;
+    border-radius: 3px;
+    width: 0%;
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-bar-pct{
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    width: 2.5rem;
+    flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .scroll-progress-bar,
+    .skill-bar-fill,
+    .exp-bullets-wrapper,
+    .exp-row-header,
+    .proj-filter-wrap,
+    .projects-more-row{
+        transition: none;
     }
 }

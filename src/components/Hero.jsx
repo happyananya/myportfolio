@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { RESUME_PDF_HREF } from "../constants";
 
@@ -9,7 +9,7 @@ const bentoItems = [
     title: "New York University",
     subtitle: "M.S. in Computer Science",
     detail: "CGPA: 3.78/4",
-    period: "Sept. 2025 \u2013 May 2027",
+    period: "Sept. 2025 – May 2027",
     accent: "var(--btn-bg)",
   },
   {
@@ -18,7 +18,7 @@ const bentoItems = [
     title: "VIT",
     subtitle: "B.Tech in Computer Science",
     detail: "CGPA: 3.7/4",
-    period: "Sept. 2021 \u2013 May 2025",
+    period: "Sept. 2021 – May 2025",
     accent: "var(--link-hover)",
   },
   {
@@ -27,7 +27,7 @@ const bentoItems = [
     title: "Experience",
     subtitle: "Software Engineer @ NYU VIDA Lab",
     detail: "+ 4 Prior Internships",
-    period: "Samsung \u00b7 Aidash \u00b7 UTP \u00b7 NAL",
+    period: "Samsung · Aidash · UTP · NAL",
     accent: "var(--btn-bg)",
   },
   {
@@ -35,7 +35,7 @@ const bentoItems = [
     icon: import.meta.env.BASE_URL + "assets/checkmark.png",
     title: "Certification",
     subtitle: "AWS Certified Solutions Architect",
-    detail: "Associate \u2013 SAA-C03",
+    detail: "Associate – SAA-C03",
     period: "",
     accent: "var(--link-hover)",
   },
@@ -49,26 +49,105 @@ const bentoItems = [
   },
 ];
 
+function useCountUp(target, duration, triggered, skip) {
+  const [count, setCount] = useState(skip ? target : 0);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    if (skip) {
+      setCount(target);
+      return;
+    }
+    if (!triggered) return;
+
+    let startTime = null;
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(animate);
+      }
+    };
+    rafRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [triggered, target, duration, skip]);
+
+  return count;
+}
+
+function StatItem({ stat, triggered, skip }) {
+  const match = stat.value.match(/^(\d+)(.*)$/);
+  const num = match ? parseInt(match[1], 10) : 0;
+  const suffix = match ? match[2] : "";
+  const count = useCountUp(num, 1400, triggered, skip);
+
+  return (
+    <div className="bento-stat">
+      <span className="bento-stat-value">
+        {count}
+        {suffix}
+      </span>
+      <span className="bento-stat-label">{stat.label}</span>
+    </div>
+  );
+}
+
+function BentoStatsCard({ item, index }) {
+  const reduceMotion = useReducedMotion();
+  const [triggered, setTriggered] = useState(!!reduceMotion);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (reduceMotion) {
+      setTriggered(true);
+      return;
+    }
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTriggered(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [reduceMotion]);
+
+  return (
+    <motion.div
+      className={`bento-card bento-${item.area}`}
+      ref={containerRef}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+    >
+      <div className="bento-stats">
+        {item.stats.map((stat) => (
+          <StatItem
+            key={stat.label}
+            stat={stat}
+            triggered={triggered}
+            skip={!!reduceMotion}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
 function BentoCard({ item, index }) {
   if (item.stats) {
-    return (
-      <motion.div
-        className={`bento-card bento-${item.area}`}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-      >
-        <div className="bento-stats">
-          {item.stats.map((stat) => (
-            <div className="bento-stat" key={stat.label}>
-              <span className="bento-stat-value">{stat.value}</span>
-              <span className="bento-stat-label">{stat.label}</span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-    );
+    return <BentoStatsCard item={item} index={index} />;
   }
 
   return (
@@ -136,8 +215,8 @@ function Hero() {
             <h1 className="title">Ananya Agarwal</h1>
             <p className="section__text__p2">M.S. Computer Science @ NYU</p>
             <p className="section__text__tagline">
-              Building reliable systems: full-stack apps, data
-              pipelines, and evaluation-driven ML.
+              Building reliable systems: full-stack apps, data pipelines, and
+              evaluation-driven ML.
               <br />
               Looking for Summer or Fall 2026 internships.
             </p>
@@ -150,7 +229,11 @@ function Hero() {
               >
                 Download CV
               </a>
-              <button type="button" className="btn btn-color-1" onClick={scrollToContact}>
+              <button
+                type="button"
+                className="btn btn-color-1"
+                onClick={scrollToContact}
+              >
                 Contact
               </button>
             </div>
@@ -162,7 +245,13 @@ function Hero() {
                 className="social-link"
                 aria-label="Ananya Agarwal on LinkedIn"
               >
-                <img src={import.meta.env.BASE_URL + "assets/linkedin.png"} alt="" className="icon" width={32} height={32} />
+                <img
+                  src={import.meta.env.BASE_URL + "assets/linkedin.png"}
+                  alt=""
+                  className="icon"
+                  width={32}
+                  height={32}
+                />
               </a>
               <a
                 href="https://github.com/happyananya"
@@ -171,7 +260,13 @@ function Hero() {
                 className="social-link"
                 aria-label="Ananya Agarwal on GitHub"
               >
-                <img src={import.meta.env.BASE_URL + "assets/github.png"} alt="" className="icon" width={32} height={32} />
+                <img
+                  src={import.meta.env.BASE_URL + "assets/github.png"}
+                  alt=""
+                  className="icon"
+                  width={32}
+                  height={32}
+                />
               </a>
             </div>
           </motion.div>
