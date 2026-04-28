@@ -167,16 +167,29 @@ function animateCountUp(el) {
   requestAnimationFrame(step);
 }
 
-const statsObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.querySelectorAll('.stat-val').forEach(animateCountUp);
-    statsObserver.unobserve(entry.target);
-  });
-}, { threshold: 0.5 });
-
 const heroStats = document.querySelector('.hero-stats');
-if (heroStats) statsObserver.observe(heroStats);
+if (heroStats) {
+  let statsDone = false;
+  function triggerCountUp() {
+    if (statsDone) return;
+    statsDone = true;
+    heroStats.querySelectorAll('.stat-val').forEach(animateCountUp);
+  }
+
+  const statsObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      triggerCountUp();
+      statsObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+
+  statsObserver.observe(heroStats);
+
+  // Fire immediately if already in the viewport on load
+  const r = heroStats.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) triggerCountUp();
+}
 
 /* ─── Init scramble ──────────────────────────────────────────────────────── */
 const scrambleWordEl = document.getElementById('scrambleWord');
