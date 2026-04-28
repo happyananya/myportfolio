@@ -19,8 +19,8 @@
         <li><a href="#experience" class="nav-link" data-section="experience">Work</a></li>
         <li><a href="#skills"     class="nav-link" data-section="skills">Skills</a></li>
         <li><a href="#projects"   class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
         <li><a href="public/assets/ananya_agarwal_resume.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
-        <li><a href="#contact" class="nav-btn" data-section="contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -48,13 +48,6 @@
 
         <p class="hero-bio reveal">Building reliable systems: full-stack apps, data pipelines, and
           evaluation-driven ML. Looking for Summer or Fall 2026 internships.</p>
-
-        <div class="hero-buttons reveal">
-          <a href="public/assets/ananya_agarwal_resume.pdf"
-             class="btn btn-primary"
-             target="_blank" rel="noopener noreferrer">Download CV</a>
-          <a href="#contact" class="btn btn-secondary">Get in touch</a>
-        </div>
 
         <div class="hero-socials reveal">
           <a href="https://www.linkedin.com/in/ananya-agarwal03/"
@@ -306,9 +299,20 @@
 
         <div class="project reveal">
           <div class="project-top-border"></div>
+          <h3 class="project-title">Nomz</h3>
+          <p class="project-stack">Django · React · TypeScript · AWS · PostgreSQL · REST APIs · CI/CD</p>
+          <p class="project-desc">A full-stack restaurant intelligence platform unifying NYC health datasets and user signals across 18+ data models with search, ranking, and CI/CD deployment.</p>
+          <div class="project-links">
+            <a href="https://github.com/gcivil-nyu-org/team3-mon-spring26" target="_blank" rel="noopener noreferrer">Code →</a>
+            <a href="https://www.nomz.dpdns.org/" target="_blank" rel="noopener noreferrer">Live demo →</a>
+          </div>
+        </div>
+
+        <div class="project reveal">
+          <div class="project-top-border"></div>
           <h3 class="project-title">InsightFlow</h3>
-          <p class="project-stack">Python · FastAPI · React · RAG · PostgreSQL · Docker</p>
-          <p class="project-desc">Full-stack NL-to-SQL application enabling non-technical users to query relational databases conversationally, with a RAG pipeline using FAISS vector search and Sentence Transformers for accurate SQL generation via Google Gemini.</p>
+          <p class="project-stack">Python · FastAPI · React · RAG · FAISS · PostgreSQL · Docker · Gemini</p>
+          <p class="project-desc">A RAG-powered NL-to-SQL assistant that lets non-technical users query relational databases in plain English via a conversational React interface.</p>
           <div class="project-links">
             <a href="https://github.com/happyananya/insightFlow" target="_blank" rel="noopener noreferrer">Code →</a>
           </div>
@@ -316,18 +320,9 @@
 
         <div class="project reveal">
           <div class="project-top-border"></div>
-          <h3 class="project-title">nomz — Restaurant Recommendation App</h3>
-          <p class="project-stack">Django · React · TypeScript · AWS · PostgreSQL · CI/CD</p>
-          <p class="project-desc">Full-stack data platform integrating public health datasets with user-generated signals across 18 data models, enabling large-scale search, ranking, and filtering across NYC restaurants with CI/CD pipelines.</p>
-          <div class="project-links">
-            <a href="https://www.nomz.dpdns.org/" target="_blank" rel="noopener noreferrer">Live demo →</a>
-          </div>
-        </div>
-
-        <div class="project reveal">
-          <div class="project-top-border"></div>
           <h3 class="project-title">Student Performance Visualization</h3>
-          <p class="project-stack">Python · SHAP · UMAP · Regression Modeling</p>
+          <p class="project-stack">Python · SHAP · UMAP · Scikit-learn</p>
+          <p class="project-desc">An end-to-end ML pipeline training 10 regression models on student data, with SHAP explainability and UMAP visualization achieving R² of 0.88.</p>
           <div class="project-links">
             <a href="https://github.com/happyananya/Student-Performance-Visualization" target="_blank" rel="noopener noreferrer">Code →</a>
           </div>
@@ -335,8 +330,9 @@
 
         <div class="project reveal">
           <div class="project-top-border"></div>
-          <h3 class="project-title">Hand Gesture &amp; Facial Movement Virtual Mouse</h3>
+          <h3 class="project-title">Virtual Mouse</h3>
           <p class="project-stack">Python · OpenCV · MediaPipe · PyAutoGUI</p>
+          <p class="project-desc">A real-time computer vision system enabling touchless cursor control through hand gesture and facial tracking using MediaPipe and OpenCV.</p>
           <div class="project-links">
             <a href="https://github.com/happyananya/Hand-Gesture-and-Facial-Movement-Controlled-Virtual-Mouse" target="_blank" rel="noopener noreferrer">Code →</a>
           </div>
@@ -345,7 +341,8 @@
         <div class="project reveal">
           <div class="project-top-border"></div>
           <h3 class="project-title">Next Word Prediction</h3>
-          <p class="project-stack">Python · RNN</p>
+          <p class="project-stack">TensorFlow · LSTM · NLP · Deep Learning</p>
+          <p class="project-desc">An LSTM-based language model trained on the Sherlock Holmes corpus for multi-word text prediction using tokenization and sequence generation.</p>
           <div class="project-links">
             <a href="https://github.com/happyananya/NextWordPrediction" target="_blank" rel="noopener noreferrer">Code →</a>
           </div>
@@ -353,8 +350,39 @@
 
         <div class="project reveal">
           <div class="project-top-border"></div>
-          <h3 class="project-title">Safe Site Predictor</h3>
-          <p class="project-stack">Python · Machine Learning</p>
+          <h3 class="project-title">SafeSitePredictor</h3>
+          <p class="project-stack">Scikit-learn · Random Forest · Machine Learning</p>
+          <p class="project-desc">A Random Forest classifier detecting phishing websites with 96.75% test accuracy across 11,055 samples using URL and HTML feature analysis.</p>
+          <div class="project-links">
+            <a href="https://github.com/happyananya/SafeSitePredictor" target="_blank" rel="noopener noreferrer">Code →</a>
+          </div>
+        </div>
+
+        <div class="project reveal">
+          <div class="project-top-border"></div>
+          <h3 class="project-title">Rejuwel</h3>
+          <p class="project-stack">Python · Tkinter · MySQL · smtplib</p>
+          <p class="project-desc">A unified desktop health app covering calorie tracking, symptom-to-deficiency mapping, workout planning, and automated daily email health reports.</p>
+          <div class="project-links">
+            <a href="https://github.com/happyananya/rejuwel" target="_blank" rel="noopener noreferrer">Code →</a>
+          </div>
+        </div>
+
+        <div class="project reveal">
+          <div class="project-top-border"></div>
+          <h3 class="project-title">Historic Stock Forecasting</h3>
+          <p class="project-stack">Python · Pandas · Statsmodels (VAR) · Matplotlib</p>
+          <p class="project-desc">A multivariate VAR time series model forecasting 5-step closing prices for Apple, Microsoft, Netflix, and Google with ADF stationarity validation.</p>
+          <div class="project-links">
+            <a href="https://github.com/happyananya/HistoricStock_Forecasting" target="_blank" rel="noopener noreferrer">Code →</a>
+          </div>
+        </div>
+
+        <div class="project reveal">
+          <div class="project-top-border"></div>
+          <h3 class="project-title">Phishing Website Detector</h3>
+          <p class="project-stack">Python · Django · Scikit-learn · Pandas · Heroku · SQLite</p>
+          <p class="project-desc">A Django web app serving a scikit-learn URL classifier in real-time, deployed to Heroku with sub-500ms inference latency and 99% accuracy.</p>
           <div class="project-links">
             <a href="https://github.com/happyananya/Phishing_Project" target="_blank" rel="noopener noreferrer">Code →</a>
           </div>

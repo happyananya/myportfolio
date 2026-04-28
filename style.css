@@ -104,11 +104,6 @@ img { display: block; max-width: 100%; }
   font-weight: 600;
 }
 
-.nav-link--cta {
-  color: var(--accent);
-  font-weight: 600;
-}
-.nav-link--cta:hover { color: var(--accent); opacity: 0.8; }
 
 /* ─── Section base ───────────────────────────────────────────────────────── */
 .section {
@@ -457,7 +452,6 @@ img { display: block; max-width: 100%; }
 .project {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 .project-top-border {
   height: 1px;
@@ -465,7 +459,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 20px;
 }
 .project-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--text);
   margin-bottom: 6px;
@@ -475,12 +469,12 @@ img { display: block; max-width: 100%; }
   font-size: 12px;
   color: var(--text-muted);
   font-family: monospace;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .project-desc {
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-secondary);
-  line-height: 1.75;
+  line-height: 1.7;
   flex: 1;
 }
 .project-links {
