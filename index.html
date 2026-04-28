@@ -1,12 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ananya | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ananya Agarwal — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+
+  <header id="site-header">
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <nav id="nav">
+      <a href="#hero" class="nav-logo">Ananya Agarwal</a>
+      <ul class="nav-links" role="list">
+        <li><a href="#experience" class="nav-link" data-section="experience">Work</a></li>
+        <li><a href="#skills"     class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects"   class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="public/assets/ananya_agarwal_resume.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        <li><a href="#contact" class="nav-btn" data-section="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ─────────────────────────────────────────────────────────── -->
+    <section id="hero" class="section-hero">
+      <div class="hero-center">
+
+        <p class="hero-eyebrow reveal">HELLO, I'M</p>
+        <h1 class="hero-name reveal">Ananya Agarwal</h1>
+
+        <div class="hero-photo-wrap reveal">
+          <img src="public/assets/profile-hero.png"
+               alt="Portrait of Ananya Agarwal with the Golden Gate Bridge in the background"
+               class="hero-photo" loading="lazy" />
+        </div>
+
+        <div class="hero-scramble reveal" aria-live="polite">
+          <span class="hero-scramble-a">A </span><span
+            class="hero-scramble-word" id="scrambleWord"></span><span
+            class="hero-cursor" id="scrambleCursor" aria-hidden="true">|</span>
+        </div>
+
+        <p class="hero-bio reveal">Building reliable systems: full-stack apps, data pipelines, and
+          evaluation-driven ML. Looking for Summer or Fall 2026 internships.</p>
+
+        <div class="hero-buttons reveal">
+          <a href="public/assets/ananya_agarwal_resume.pdf"
+             class="btn btn-primary"
+             target="_blank" rel="noopener noreferrer">Download CV</a>
+          <a href="#contact" class="btn btn-secondary">Get in touch</a>
+        </div>
+
+        <div class="hero-socials reveal">
+          <a href="https://www.linkedin.com/in/ananya-agarwal03/"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Ananya Agarwal on LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/happyananya"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Ananya Agarwal on GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+        </div>
+
+        <p class="hero-stats reveal">
+          <span class="stat">
+            <span class="stat-val" data-target="5" data-suffix="+">0+</span>
+            <span class="stat-label">Internships</span>
+          </span>
+          <span class="stat-sep" aria-hidden="true">·</span>
+          <span class="stat">
+            <span class="stat-val" data-target="6" data-suffix="">0</span>
+            <span class="stat-label">Projects</span>
+          </span>
+          <span class="stat-sep" aria-hidden="true">·</span>
+          <span class="stat">
+            <span class="stat-val" data-target="34" data-suffix="">0</span>
+            <span class="stat-label">Skills</span>
+          </span>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ─── EXPERIENCE ────────────────────────────────────────────────────── -->
+    <section id="experience" class="section">
+      <h2 class="section-label reveal">Work Experience</h2>
+
+      <div class="exp-stack">
+
+        <div class="exp-row reveal">
+          <div class="exp-left">
+            <span class="exp-company">NYU – VIDA Lab</span>
+            <span class="exp-date">Feb. 2026 – Present</span>
+          </div>
+          <div class="exp-divider" aria-hidden="true"></div>
+          <div class="exp-right">
+            <h3 class="exp-role">Software Engineer</h3>
+            <p class="exp-location">New York, USA</p>
+            <ul class="exp-bullets">
+              <li>Modernized a large-scale image intelligence platform from Angular 4 to Angular 20, migrating 31 components, 9 services, and 8 data models to a modular standalone architecture integrated with Firebase (Auth, Realtime DB, Cloud Storage).</li>
+              <li>Designed backend data processing pipelines and Cloud Functions (Node.js) for image transformation, metadata ingestion, and access control, enabling scalable handling of high-volume media and structured data.</li>
+              <li>Implemented evaluation-driven workflows for validating annotation consistency and system outputs, improving reliability of human-in-the-loop data labeling systems.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">Angular</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Cloud Functions</span>
+              <span class="tag">TypeScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-row reveal">
+          <div class="exp-left">
+            <span class="exp-company">Universiti Teknologi PETRONAS</span>
+            <span class="exp-date">Jan. 2025 – May 2025</span>
+          </div>
+          <div class="exp-divider" aria-hidden="true"></div>
+          <div class="exp-right">
+            <h3 class="exp-role">Machine Learning Engineering Intern</h3>
+            <p class="exp-location">Seri Iskandar, Perak, Malaysia</p>
+            <ul class="exp-bullets">
+              <li>Developed a scalable code analysis pipeline to detect AI-generated C programs using 9+ software engineering metrics, including Cyclomatic Complexity, Halstead metrics, and entropy-based features.</li>
+              <li>Engineered feature extraction and clustering workflows on structured code datasets, achieving a Silhouette Score of 0.48 and identifying distinguishable structural patterns in generated vs human-written code.</li>
+              <li>Built automated parsing and preprocessing pipelines for unstructured source code data, enabling downstream ML modeling and evaluation.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Clustering</span>
+              <span class="tag">Feature Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-row reveal">
+          <div class="exp-left">
+            <span class="exp-company">Samsung Research</span>
+            <span class="exp-date">June 2024 – Dec. 2024</span>
+          </div>
+          <div class="exp-divider" aria-hidden="true"></div>
+          <div class="exp-right">
+            <h3 class="exp-role">Machine Learning Engineering Intern</h3>
+            <p class="exp-location">Remote</p>
+            <ul class="exp-bullets">
+              <li>Engineered an incremental learning pipeline in PyTorch to mitigate catastrophic forgetting in evolving classification systems, retaining 85% accuracy after integrating new data classes.</li>
+              <li>Evaluated CNN and Vision Transformer (ViT) architectures under continual learning constraints, analyzing trade-offs in knowledge retention, generalization, and model stability.</li>
+              <li>Designed experimental evaluation frameworks to benchmark model performance across sequential datasets, improving robustness of model selection decisions.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">CNN</span>
+              <span class="tag">Vision Transformers</span>
+              <span class="tag">Incremental Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-row reveal">
+          <div class="exp-left">
+            <span class="exp-company">Aidash</span>
+            <span class="exp-date">June 2024 – July 2024</span>
+          </div>
+          <div class="exp-divider" aria-hidden="true"></div>
+          <div class="exp-right">
+            <h3 class="exp-role">Data Science Intern</h3>
+            <p class="exp-location">Bangalore, Karnataka, India</p>
+            <ul class="exp-bullets">
+              <li>Implemented YOLOv8 architecture to detect alligator cracks on roads, achieving a precision of 91.26%.</li>
+              <li>Boosted model recall by 50% using Canny edge detection and CLAHE (adaptive histogram equalization) preprocessing on a 25,000-image dataset.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">YOLOv8</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">Python</span>
+              <span class="tag">Computer Vision</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-row reveal">
+          <div class="exp-left">
+            <span class="exp-company">National Aerospace Laboratories</span>
+            <span class="exp-date">Oct. 2023 – Dec. 2023</span>
+          </div>
+          <div class="exp-divider" aria-hidden="true"></div>
+          <div class="exp-right">
+            <h3 class="exp-role">AI/ML Research Intern</h3>
+            <p class="exp-location">Remote</p>
+            <ul class="exp-bullets">
+              <li>Spearheaded VGG19 algorithm implementation, attaining 70% accuracy in symbol and shape recognition using a dataset of 90,000 images.</li>
+              <li>Utilized innovative techniques to develop a grid-based display system, achieving an 80% accuracy rate in identifying coordinates for various shapes and symbols.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">VGG19</span>
+              <span class="tag">Python</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">Computer Vision</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── SKILLS ────────────────────────────────────────────────────────── -->
+    <section id="skills" class="section">
+      <h2 class="section-label reveal">Skills</h2>
+
+      <div class="skills-core reveal">
+        <span class="core-pill">Python</span>
+        <span class="core-pill">JavaScript/TypeScript</span>
+        <span class="core-pill">SQL (PostgreSQL)</span>
+        <span class="core-pill">React</span>
+        <span class="core-pill">PyTorch</span>
+        <span class="core-pill">AWS</span>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-group reveal">
+          <p class="skill-group-label">Languages</p>
+          <div class="skill-pills">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">JavaScript/TypeScript</span>
+            <span class="skill-pill">SQL (PostgreSQL)</span>
+            <span class="skill-pill">C/C++</span>
+            <span class="skill-pill">Java</span>
+            <span class="skill-pill">HTML/CSS</span>
+            <span class="skill-pill">Node.js</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <p class="skill-group-label">AI &amp; Machine Learning</p>
+          <div class="skill-pills">
+            <span class="skill-pill">PyTorch</span>
+            <span class="skill-pill">TensorFlow</span>
+            <span class="skill-pill">HuggingFace</span>
+            <span class="skill-pill">YOLOv8</span>
+            <span class="skill-pill">OpenCV</span>
+            <span class="skill-pill">Scikit-learn</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <p class="skill-group-label">ML &amp; LLM Systems</p>
+          <div class="skill-pills">
+            <span class="skill-pill">Prompt Engineering</span>
+            <span class="skill-pill">RAG</span>
+            <span class="skill-pill">Model Evaluation</span>
+            <span class="skill-pill">Incremental Learning</span>
+            <span class="skill-pill">CNN</span>
+            <span class="skill-pill">Vision Transformers (ViT)</span>
+            <span class="skill-pill">NLP</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <p class="skill-group-label">Full-Stack &amp; Data</p>
+          <div class="skill-pills">
+            <span class="skill-pill">React</span>
+            <span class="skill-pill">Angular</span>
+            <span class="skill-pill">Django</span>
+            <span class="skill-pill">FastAPI</span>
+            <span class="skill-pill">Firebase</span>
+            <span class="skill-pill">D3.js</span>
+            <span class="skill-pill">Fabric.js</span>
+            <span class="skill-pill">Pandas</span>
+            <span class="skill-pill">NumPy</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <p class="skill-group-label">Cloud &amp; DevOps</p>
+          <div class="skill-pills">
+            <span class="skill-pill">AWS</span>
+            <span class="skill-pill">CI/CD (Travis CI)</span>
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">Linux</span>
+            <span class="skill-pill">Docker</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── PROJECTS ───────────────────────────────────────────────────────── -->
+    <section id="projects" class="section">
+      <h2 class="section-label reveal">Projects</h2>
+
+      <div class="projects-grid">
+
+        <div class="project reveal">
+          <div class="project-top-border"></div>
+          <h3 class="project-title">InsightFlow</h3>
+          <p class="project-stack">Python · FastAPI · React · RAG · PostgreSQL · Docker</p>
+          <p class="project-desc">Full-stack NL-to-SQL application enabling non-technical users to query relational databases conversationally, with a RAG pipeline using FAISS vector search and Sentence Transformers for accurate SQL generation via Google Gemini.</p>
+          <div class="project-links">
+            <a href="https://github.com/happyananya/insightFlow" target="_blank" rel="noopener noreferrer">Code →</a>
+          </div>
+        </div>
+
+        <div class="project reveal">
+          <div class="project-top-border"></div>
+          <h3 class="project-title">nomz — Restaurant Recommendation App</h3>
+          <p class="project-stack">Django · React · TypeScript · AWS · PostgreSQL · CI/CD</p>
+          <p class="project-desc">Full-stack data platform integrating public health datasets with user-generated signals across 18 data models, enabling large-scale search, ranking, and filtering across NYC restaurants with CI/CD pipelines.</p>
+          <div class="project-links">
+            <a href="https://www.nomz.dpdns.org/" target="_blank" rel="noopener noreferrer">Live demo →</a>
+          </div>
+        </div>
+
+        <div class="project reveal">
+          <div class="project-top-border"></div>
+          <h3 class="project-title">Student Performance Visualization</h3>
+          <p class="project-stack">Python · SHAP · UMAP · Regression Modeling</p>
+          <div class="project-links">
+            <a href="https://github.com/happyananya/Student-Performance-Visualization" target="_blank" rel="noopener noreferrer">Code →</a>
+          </div>
+        </div>
+
+        <div class="project reveal">
+          <div class="project-top-border"></div>
+          <h3 class="project-title">Hand Gesture &amp; Facial Movement Virtual Mouse</h3>
+          <p class="project-stack">Python · OpenCV · MediaPipe · PyAutoGUI</p>
+          <div class="project-links">
+            <a href="https://github.com/happyananya/Hand-Gesture-and-Facial-Movement-Controlled-Virtual-Mouse" target="_blank" rel="noopener noreferrer">Code →</a>
+          </div>
+        </div>
+
+        <div class="project reveal">
+          <div class="project-top-border"></div>
+          <h3 class="project-title">Next Word Prediction</h3>
+          <p class="project-stack">Python · RNN</p>
+          <div class="project-links">
+            <a href="https://github.com/happyananya/NextWordPrediction" target="_blank" rel="noopener noreferrer">Code →</a>
+          </div>
+        </div>
+
+        <div class="project reveal">
+          <div class="project-top-border"></div>
+          <h3 class="project-title">Safe Site Predictor</h3>
+          <p class="project-stack">Python · Machine Learning</p>
+          <div class="project-links">
+            <a href="https://github.com/happyananya/Phishing_Project" target="_blank" rel="noopener noreferrer">Code →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="projects-github-link reveal">
+        <a href="https://github.com/happyananya" target="_blank" rel="noopener noreferrer">More on GitHub →</a>
+      </p>
+    </section>
+
+    <!-- ─── CONTACT ───────────────────────────────────────────────────────── -->
+    <section id="contact" class="section">
+      <div class="contact-inner">
+        <h2 class="section-label reveal">Contact</h2>
+        <h3 class="contact-heading reveal">Let's work together.</h3>
+        <p class="contact-sub reveal">I'm actively looking for Summer or Fall 2026 opportunities in
+          software engineering and ML. My inbox is always open.</p>
+        <div class="contact-links reveal">
+          <a href="mailto:aa13549@nyu.edu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            aa13549@nyu.edu
+          </a>
+          <a href="https://www.linkedin.com/in/ananya-agarwal03/" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/happyananya" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Designed &amp; built by Ananya Agarwal · 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
